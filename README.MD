@@ -1,7 +1,6 @@
 # Software installation instructions
 
 ### Summary:
-
 1. [Disabling linux workstation automatic update](#1-disabling-linux-automatic-update)
 2. [Default linux apps](#2-default-linux-apps)
 3. [Firefox](#3-install-firefox-browser-and-plugins)
@@ -19,9 +18,7 @@
 15. [Install grsync](#15-install-grsync)
 16. [Install MySql database](#16-install-mysql-database)
 17. [Install telegram](#17-install-telegram)
-
-
-57. [Dropbox client](#57-dropbox-client)
+18. [Dropbox client](#18-dropbox-client)
 
 ----------
 #### 1. Disabling linux automatic update
@@ -373,9 +370,7 @@ sudo apt-get install orville-write
 [Back](#summary)
 
 ----------
-
-
-#### 57. Dropbox client
+#### 18. Dropbox client
 
 - Copy this to terminal
 ```
