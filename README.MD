@@ -1,6 +1,7 @@
 # Software installation instructions
 
 ### Summary:
+
 1. [Disabling linux workstation automatic update](#1-disabling-linux-automatic-update)
 2. [Default linux apps](#2-default-linux-apps)
 3. [Firefox](#3-install-firefox-browser-and-plugins)
