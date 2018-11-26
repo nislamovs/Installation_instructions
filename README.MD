@@ -34,7 +34,7 @@
 - to : 
 ```APT::Periodic::Update-Package-Lists "0";```
 
-[Back](#Summary:)
+[Back](#summary:)
 
 ----------
 #### 2. Default linux apps
