@@ -34,7 +34,7 @@
 - to : 
 ```APT::Periodic::Update-Package-Lists "0";```
 
-[Back](#summary:)
+[Back](#summary)
 
 ----------
 #### 2. Default linux apps
@@ -59,7 +59,7 @@ sudo apt-get install -y sendmail
 sudo sendmail config
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 3. Install firefox browser and plugins
@@ -87,7 +87,7 @@ sudo apt-get install -y sendmail
 sudo sendmail config
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 4. Install skype
@@ -103,7 +103,7 @@ sudo dpkg -i skype-install.deb
 sudo apt-get install -y skype 
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 5. Install weather control
@@ -118,7 +118,7 @@ sudo apt-get install my-weather-indicator
 
 Uses too much of system resources.
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 6. Storage on second hdd
@@ -126,7 +126,7 @@ Uses too much of system resources.
 If necessary to create a partition use gparted: ```sudo apt-get install gparted``` 
 During partition creation process select Device -> create partition table type -> gpt
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 7. Enable additional software repositories
@@ -144,7 +144,7 @@ During partition creation process select Device -> create partition table type -
     ```
     press Enter to confirm operations
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 8. Terminator
@@ -154,7 +154,7 @@ During partition creation process select Device -> create partition table type -
 sudo apt-get install -y terminator
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 9. Install java 8
@@ -169,7 +169,7 @@ export _JAVA_OPTIONS=-Xmx1024M
 ```
 - Test result with command: ```java -version```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 10. Install maven 3
@@ -189,7 +189,7 @@ sudo apt-get install maven3
 sudo apt install maven
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 11. Install google chrome
@@ -203,7 +203,7 @@ sudo apt-get update
 sudo apt-get install google-chrome-stable
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 12. Install mongodb
@@ -218,7 +218,7 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 13. Install power management utils
@@ -231,7 +231,7 @@ sudo pm-suspend
 sudo pm-hibernate
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 14. Install postgresql database
@@ -271,7 +271,7 @@ CREATE TABLE playground (
 exit
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 15. Install qrsync
@@ -284,7 +284,7 @@ Installation of qrsync (rsync with gui)
 sudo apt-get install grsync
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 16. Install mysql database
@@ -354,7 +354,7 @@ For ubuntu 16.04 download deb file from mysql site.
 sudo apt-get install mysqltuner
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 #### 17. Install telegram
@@ -370,7 +370,7 @@ sudo apt-get install telegram
 sudo apt-get install orville-write
 ```
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
 
@@ -391,6 +391,6 @@ dropbox start -i
 Additional info
 http://www.dropboxwiki.com/tips-and-tricks/using-the-official-dropbox-command-line-interface-cli
 
-[Back](#Summary:)
+[Back](#summary)
 
 ----------
