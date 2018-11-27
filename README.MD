@@ -29,6 +29,22 @@
 26. [Install Pinegrow](#26-install-pinegrow)
 27. [Install JBoss](#27-install-jboss)
 28. [Install gedit plugins](#28-install-gedit-plugins)
+29. [Install JIRA](#29-install-jira)
+30. [Install Confluence](#30-install-confluence)
+31. [Install Bitbucket](#31-install-bitbucket)
+32. [Install SoapUI](#32-install-soapui)
+33. [Install Yarn](#33-install-yarn)
+34. [Install Tomcat 8](#34-install-tomcat-8)
+35. [Install Squirrel](#35-install-squirrel)
+36. [Install MsSql](#36-install-mssql)
+37. [Install Virtualbox](#37-install-virtualbox)
+38. [Install Openldap](#38-install-openldap)
+39. [Install Chrome](#39-install-chrome)
+40. [Install Gradle](#40-install-gradle)
+41. [Install Firefox ESR](#41-install-firefox-esr)
+42. [Install gImageReader](#42-install-gimagereader)
+43. [Install proFTPd](#43-install-proftpd)
+
 ----------
 #### 1. Disabling linux automatic update
 
@@ -321,8 +337,8 @@ pass : root
 mysql -u root -p
 
 create database testdb;
-create user 'perkele'@'localhost' identified by '81126f0afcf5a95115f397567f1066d1';
-grant all on testdb.* to 'perkele';
+create user 'yourname'@'localhost' identified by '81126f0afcf5a95115f397567f1066d1';
+grant all on testdb.* to 'yourname';
 use testdb;
 create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT,last_name TEXT);
 ```
@@ -560,7 +576,7 @@ Info from here:
 
 - Download IntellijIDEA archive (tar.gz) from Jetbrains site
 - Unpack it
-- Append new path to path variable: ```PATH=$PATH:/tmp/mozilla_perkele0/idea-IU-171.4424.56/bin```
+- Append new path to path variable: ```PATH=$PATH:/tmp/mozilla_yourname0/idea-IU-171.4424.56/bin```
 - Install plugins
     
 [Back](#summary)
@@ -642,6 +658,339 @@ or
     cd /usr/lib/gedit/plugins
     cp -rf /home/student/Desktop/regexsearch* .
     ```
+
+[Back](#summary)
+
+----------
+#### 29. Install JIRA
+
+- Download binary from the site
+
+- Copy this to terminal
+
+    ```
+    rsync -azP /home/yourname/Downloads/atlassian-jira-software-7.3.0-x64.bin yourname@box14:/home/yourname/Downloads/temp
+    chmod a+x atlassian-jira-software-X.X.X-x64.bin
+    sudo ./atlassian-jira-software-X.X.X-x64.bin
+    ```
+    
+- Set data during installation:
+
+    ```
+    Where should JIRA Software be installed?
+    [/opt/atlassian/jira]
+    
+    Default location for JIRA Software data
+    [/var/atlassian/application-data/jira]
+    
+    HTTP: 9090, Control: 9005
+    ```
+    
+- Create user in database:
+
+    ```
+    sudo -i -u postgres
+    psql
+    CREATE USER jiradbuser WITH password '99336d87ce79e2';
+    CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;
+    GRANT ALL privileges ON DATABASE jiradb TO jiradbuser;
+    ```
+        
+- Make changes in configuration files:
+    - In file ```/etc/postgresql/9.2/main/postgresql.conf``` find string ```#listen_addresses = 'localhost'``` and change to ```listen_addresses = '*'```
+    - In file ```/etc/postgresql/9.2/main/pg_hba.conf``` find and modify string ```host    all    all    192.168.0.1/16    md5```
+    
+- Restart service:
+    ```
+    sudo service postgresql restart
+    ```
+    
+- Additional db setup:
+    ```
+    #psql --host=localhost --port=5432 --username=jiradbuser --password --dbname=jiradb
+    #SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'jiradb' AND pid <> pg_backend_pid();
+    ```
+    
+[Back](#summary)
+
+----------
+#### 30. Install Confluence
+
+
+- Download binary from the site
+
+- Copy this to terminal
+
+    ```
+    rsync -azP /home/yourname/Downloads//home/yourname/Downloads/atlassian-confluence-6.0.3-x64.bin yourname@box14:/home/yourname/Downloads/temp
+    chmod a+x /home/yourname/Downloads/atlassian-confluence-6.0.3-x64.bin
+    sudo ./atlassian-confluence-6.0.3-x64.bin
+    ```
+    
+- Set data during installation:
+
+    ```
+    Where should Confluence 6.0.3 be installed?
+    [/opt/atlassian/confluence]
+    
+    Default location for Confluence data
+    [/var/atlassian/application-data/confluence]
+    
+    HTTP Port Number : 9080
+    Control Port Number : 9000
+    ```
+    
+- Create user in database:
+
+    ```
+    sudo -i -u postgres
+    psql
+    CREATE USER confluencedbuser WITH password 'e12876989fcb9d52';
+    CREATE DATABASE confluence WITH ENCODING 'UTF8';
+    GRANT ALL privileges ON DATABASE confluence TO confluencedbuser;
+    ```
+
+[Back](#summary)
+
+----------
+#### 31. Install Bitbucket
+
+- Download binary from the site
+
+- Copy this to terminal
+
+    ```
+    rsync -azP /home/yourname/Downloads/atlassian-bitbucket-4.4.1-x64.bin yourname@box14:/home/yourname/Downloads/temp
+    chmod a+x atlassian-bitbucket-4.4.1-x64.bin
+    sudo ./atlassian-bitbucket-4.4.1-x64.bin
+    
+    cd /storage/
+    mkdir -p atlassian/application-data/bitbucket
+    ```
+    
+- Set data during installation:
+
+    ```
+    Where should Bitbucket be installed?
+    [/opt/atlassian/bitbucket/4.4.1]
+    
+    The location for Bitbucket data.
+    This will be the default location for repositories, plugins, and other data.
+    Ensure that this location is not used by another Bitbucket installation.
+    [/var/atlassian/application-data/bitbucket]
+    /storage/atlassian/application-data/bitbucket
+    
+    HTTP Port Number    : 7990
+    Control Port Number : 8006
+    ```
+    
+- Create user in database:
+
+    ```
+    sudo -i -u postgres
+    psql
+    CREATE ROLE bitbucketuser WITH LOGIN PASSWORD 'a65f42172e78a2c1cd' VALID UNTIL 'infinity';
+    CREATE DATABASE bitbucket WITH ENCODING='UTF8' OWNER=bitbucketuser CONNECTION LIMIT=-1;
+    GRANT ALL privileges ON DATABASE bitbucket TO bitbucketuser;
+    ```
+
+[Back](#summary)
+
+----------
+#### 32. Install SoapUI
+
+Java must be preinstalled
+
+- Copy this to terminal
+    ```
+    cd ~/Desktop;
+    mkdir soapui
+    cd $_
+    wget http://cdn01.downloads.smartbear.com/soapui/5.3.0/SoapUI-5.3.0-linux-bin.tar.gz
+    sudo tar -xzf SoapUI-5.3.0-linux-bin.tar.gz  -C /opt/
+    cd /opt/SoapUI-5.3.0/bin/
+    ./soapui.sh
+    ```
+
+[Back](#summary)
+
+----------
+#### 33. Install Yarn
+
+- Copy this to terminal
+    ```
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get update && sudo apt-get install yarn
+    ```
+
+[Back](#summary)
+
+----------
+#### 34. Install Tomcat 8
+
+- Copy this to terminal
+    ```
+    sudo apt-get install tomcat8 tomcat8-docs tomcat8-admin tomcat8-examples
+    ```
+- In file : ```tomcat-users.xml``` add user roles:
+
+    ```
+    sudo vim /etc/tomcat8/tomcat-users.xml
+    ```
+    Add this:
+    ```
+    <tomcat-users>
+        <user username="admin" password="password" roles="manager-gui,admin-gui"/>
+        <user username="adm" password="passwd" roles="manager-script"/>
+    </tomcat-users>
+    ```
+- Restart Tomcat:
+
+    ```
+    sudo service tomcat8 restart
+    ```
+    
+[Back](#summary)
+
+----------
+#### 35. Install Squirrel
+
+- Download jar file from : ```http://www.squirrelsql.org```
+- Launch it : ```java -jar squirrel-sql-3.3.0-install.jar```
+- Install drivers for databases
+
+[Back](#summary)
+
+----------
+#### 36. Install MsSql
+
+- Copy this to terminal
+```
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/16.04/mssql-server.list > /etc/apt/sources.list.d/mssql-server.list
+sudo apt-get update
+apt-cache search mssql-server
+sudo apt-get install mssql-server
+```
+
+[Back](#summary)
+
+----------
+#### 37. Install Virtualbox
+
+- Copy this to terminal
+```
+sudo apt-get install linux-headers-generic build-essential dkms
+sudo apt-get remove --purge -y virtualbox-dkms
+sudo apt-get install -y virtualbox-dkms
+sudo aptitude install virtualbox-guest-x11
+```
+
+- Additional info:
+```
+https://askubuntu.com/questions/920689/how-to-issue-modprobe-vboxdrv-error-in-virtualbox
+https://blogs.oracle.com/oswald/entry/importing_a_vdi_in_virtualbox
+```
+
+[Back](#summary)
+
+----------
+#### 38. Install Openldap
+
+- Copy this to terminal
+```
+sudo apt-get install slapd
+```
+pass : root
+```
+sudo apt-get install ldap-utils
+sudo /etc/init.d/slapd restart
+```
+
+[Back](#summary)
+
+----------
+#### 39. Install chrome
+
+- Installation
+
+Info from here : ```http://askubuntu.com/questions/510056/how-to-install-google-chrome```
+
+```
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo apt-get update 
+sudo apt-get install google-chrome-stable
+```
+
+- Update
+```
+sudo apt-get --only-upgrade install google-chrome-stable
+```
+
+[Back](#summary)
+
+----------
+#### 40. Install gradle
+
+Java must be preinstalled.
+
+- Installation
+
+```
+sudo apt-get install gradle
+```
+
+- Update
+```
+sudo add-apt-repository ppa:cwchien/gradle
+sudo apt-get update
+sudo apt upgrade gradle
+```
+
+[Back](#summary)
+
+----------
+#### 41. Install firefox esr
+
+Necessary for selenium to work
+
+- Installation
+
+```
+sudo add-apt-repository ppa:jonathonf/firefox-esr
+sudo apt-get update
+sudo apt-get install firefox-esr
+```
+
+[Back](#summary)
+
+----------
+#### 42. Install gImageReader
+
+OCR for linux
+
+- Installation
+
+```
+sudo apt-get install gImageReader
+```
+
+[Back](#summary)
+
+----------
+#### 43. Install proFTPd
+
+- Installation
+
+```
+sudo apt-get install proftpd
+```
+type: stand alone
+
+In file ```/etc/proftpd/proftpd.conf``` find and modify string: ```PassivePorts                  6100 70000```
 
 [Back](#summary)
 

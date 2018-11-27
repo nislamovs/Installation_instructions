@@ -3,3 +3,18 @@ Make submodules in summary
 make oracle db installation guide from youtube videos
 
 jmeter
+squid
+wireshark
+shellinabox
+svn
+wine
+redis
+additional settings for jenkins
+
+nginx
+flash standalone player
+JXplorer
+Apache directory studio
+passenger
+
+gqrx http://gqrx.dk/download/install-ubuntu
