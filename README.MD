@@ -92,6 +92,7 @@ sudo sendmail config
   - firessh
   - httprequester
   - pdfmage
+  - JSONLite
   - text editor
   - simple youtube mp3 button
   - fireftp
