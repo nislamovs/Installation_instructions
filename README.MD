@@ -75,6 +75,7 @@ sudo apt-get install -y pandoc
 sudo apt-get install -y ntp
 sudo apt-get install -y tor
 sudo apt-get install -y gmountiso
+sudo apt-get install -y keepass2
 sudo apt-get install -y hydra
 
 sudo apt-get install -y sendmail
