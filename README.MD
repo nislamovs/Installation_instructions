@@ -192,6 +192,14 @@ export _JAVA_OPTIONS=-Xmx1024M
 ```
 - Test result with command: ```java -version```
 
+----
+
+- Newer versions of Linux:
+```
+sudo apt update
+sudo apt install openjdk-8-jdk openjdk-8-jre
+```
+
 [Back](#summary)
 
 ----------
