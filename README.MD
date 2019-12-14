@@ -64,6 +64,7 @@ sudo apt-get install -y vim
 sudo apt-get install -y trash
 sudo apt-get install -y htop
 sudo apt-get install -y meld
+sudo apt-get install -y gnumeric
 sudo apt-get install -y tasksel
 sudo apt-get install -y openssh-server
 sudo apt-get install -y sshpass 
