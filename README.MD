@@ -1021,7 +1021,7 @@ sudo apt install kicad-demos
 
 - Additional info:
 
-`sudo apt install --no-install-recommends kicad`
+`https://kicad-pcb.org/download/ubuntu/`
 
 [Back](#summary)
 
