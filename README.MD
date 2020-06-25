@@ -44,6 +44,7 @@
 41. [Install Firefox ESR](#41-install-firefox-esr)
 42. [Install gImageReader](#42-install-gimagereader)
 43. [Install proFTPd](#43-install-proftpd)
+44. [Install KiCad](#44-install-kicad)
 
 ----------
 #### 1. Disabling linux automatic update
@@ -1002,6 +1003,25 @@ sudo apt-get install proftpd
 type: stand alone
 
 In file ```/etc/proftpd/proftpd.conf``` find and modify string: ```PassivePorts                  6100 70000```
+
+[Back](#summary)
+
+----------
+#### 44. Install KiCad
+
+- Installation
+
+```
+sudo add-apt-repository --yes ppa:js-reynaud/kicad-5
+sudo apt update
+sudo apt install kicad --install-recommends kicad
+# If you want demo projects
+sudo apt install kicad-demos
+```
+
+- Additional info:
+
+`sudo apt install --no-install-recommends kicad`
 
 [Back](#summary)
 
