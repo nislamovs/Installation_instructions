@@ -46,7 +46,7 @@
 43. [Install proFTPd](#43-install-proftpd)
 44. [Install KiCad](#44-install-kicad)
 45. [Install GNS3](#45-install-gns3)
-46. [Install PickIt2_software](#46-install-pickit2_software)
+46. [Install PickIt2 software](#46-install-pickit2_software)
 
 ----------
 #### 1. Disabling linux automatic update
