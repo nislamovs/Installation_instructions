@@ -1046,6 +1046,10 @@ sudo apt-get install gns3-gui
 
 #### 46. Install PickIt2 software
 
+- Compiler
+
+`sudo apt-get install sdcc`
+
 - Firmware programming software installation:
 
 ```
