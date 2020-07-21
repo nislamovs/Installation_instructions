@@ -46,6 +46,7 @@
 43. [Install proFTPd](#43-install-proftpd)
 44. [Install KiCad](#44-install-kicad)
 45. [Install GNS3](#45-install-gns3)
+46. [Install PickIt2_software](#46-install-pickit2_software)
 
 ----------
 #### 1. Disabling linux automatic update
@@ -1036,6 +1037,45 @@ sudo apt install kicad-demos
 sudo add-apt-repository ppa:gns3/ppa
 sudo apt-get update
 sudo apt-get install gns3-gui
+```
+
+[Back](#summary)
+
+
+----------
+
+#### 46. Install PickIt2 software
+
+- Firmware programming software installation:
+
+```
+sudo apt-get install libusb-dev libusb-1.0-0-dev libudev-dev
+wget http://ww1.microchip.com/downloads/en/DeviceDoc/pk2cmdv1.20LinuxMacSource.tar.gz
+tar -xzf pk2cmdv1.20LinuxMacSource.tar.gz
+cd pk2cmdv1.20LinuxMacSource ;
+make linux
+sudo make install
+```
+
+Then connect PickIt2 to usb and run : `pk2cmd -?v`
+
+```
+Response should look like this :
+-------------------------------
+Executable Version:    1.20.00
+Device File Version:   1.55.00
+OS Firmware Version:   2.32.00
+
+
+Operation Succeeded
+-------------------------------
+```
+
+- Additional info :
+
+https://nathandumont.com/blog/setting-up-pk2cmd-on-ubuntu
+https://hackaday.com/2010/11/03/how-to-program-pics-using-linux/
+https://www.mexchip.com/en/2010/07/how-to-use-the-pickit2-programmer-under-linux/
 ```
 
 [Back](#summary)
