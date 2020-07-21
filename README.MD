@@ -1076,7 +1076,7 @@ Operation Succeeded
 https://nathandumont.com/blog/setting-up-pk2cmd-on-ubuntu
 https://hackaday.com/2010/11/03/how-to-program-pics-using-linux/
 https://www.mexchip.com/en/2010/07/how-to-use-the-pickit2-programmer-under-linux/
-```
+
 
 [Back](#summary)
 
