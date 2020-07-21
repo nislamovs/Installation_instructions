@@ -45,6 +45,7 @@
 42. [Install gImageReader](#42-install-gimagereader)
 43. [Install proFTPd](#43-install-proftpd)
 44. [Install KiCad](#44-install-kicad)
+45. [Install GNS3](#45-install-gns3)
 
 ----------
 #### 1. Disabling linux automatic update
@@ -1022,6 +1023,20 @@ sudo apt install kicad-demos
 - Additional info:
 
 `https://kicad-pcb.org/download/ubuntu/`
+
+[Back](#summary)
+
+----------
+
+#### 45. Install GNS3
+
+- Installation
+
+```
+sudo add-apt-repository ppa:gns3/ppa
+sudo apt-get update
+sudo apt-get install gns3-gui
+```
 
 [Back](#summary)
 
